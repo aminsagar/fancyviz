@@ -1,0 +1,1 @@
+python motif_discovery_position_independent_epoch_validation.py --csv NGS_Run149_AA_167_SEA-CUB-Top-Binders_small_test4.csv --output-dir analysis_test_13 --column bike --min-instances 10 --epochs 20 --enable-validation 
