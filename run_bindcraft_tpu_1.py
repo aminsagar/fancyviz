@@ -28,6 +28,10 @@ for i in range(NUM_TPUS):
 
 def run_bindcraft(job_id: int):
     tpu_id = tpu_queue.get()
+    stagger_seconds = 5 * tpu_id
+    print(f"[Jon {job_id} Sleeping {stagger_seconds}s before TPU init]")
+    time.sleep(stagger_seconds)
+
     port = BASE_PORT + tpu_id
 
     env = os.environ.copy()
