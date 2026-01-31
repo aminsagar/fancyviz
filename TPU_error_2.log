@@ -1,0 +1,6 @@
+WARNING: Logging before InitGoogle() is written to STDERR
+E0000 00:00:1769888966.560107  264202 common_lib.cc:612] Could not set metric server port: INVALID_ARGUMENT: Could not find SliceBuilder port 8471 in any of the 1 ports provided in `tpu_process_addresses`="localhost:8477"
+=== Source Location Trace: ===
+learning/45eac/tfrc/runtime/common_lib.cc:230
+/home/amin_sagar/.local/lib/python3.10/site-packages/jax/_src/xla_bridge.py:133: UserWarning: TPU backend initialization is taking more than 60.0 seconds. Did you run your code on all TPU hosts? See https://jax.readthedocs.io/en/latest/multi_process.html for more information.
+  warnings.warn(
