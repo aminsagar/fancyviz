@@ -1,0 +1,17 @@
+Yeah, you need to specify some other stuff too. For the mpnn/AF step of the RFdiffusion workflow I handled this using:
+    tpu_id = tpu_queue.get()
+
+    ports = [8476+i for i in range(num_tpu)] # Setup ports for all TPUs
+
+        os.environ["TPU_VISIBLE_DEVICES"] = str(tpu_id)
+
+        os.environ["TPU_CHIPS_PER_PROCESS_BOUNDS"] = "1,1,1"
+
+        os.environ["TPU_PROCESS_BOUNDS"] = "1,1,1"
+
+        os.environ["TPU_MESH_CONTROLLER_ADDRESS"] = f"localhost:{ports[tpu_id]}"
+
+        os.environ["TPU_MESH_CONTROLLER_PORT"] = str(ports[tpu_id])
+ 
+As long as all of these environment variables are set it should work
+ 
