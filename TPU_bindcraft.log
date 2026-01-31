@@ -5,7 +5,8 @@ Yeah, you need to specify some other stuff too. For the mpnn/AF step of the RFdi
 
         os.environ["TPU_VISIBLE_DEVICES"] = str(tpu_id)
 
-        os.environ["TPU_CHIPS_PER_PROCESS_BOUNDS"] = "1,1,1"
+        os.environ["TPU_CHIPS_PER_PROCESS_BOUNDS"] = "1,1,1"/home/amin_sagar/.local/lib/python3.10/site-packages/jax/_src/xla_bridge.py:133: UserWarning: TPU backend initialization is taking more than 60.0 seconds. Did you run your code on all TPU hosts? See https://jax.readthedocs.io/en/latest/multi_process.html for more information.
+  warnings.warn(
 
         os.environ["TPU_PROCESS_BOUNDS"] = "1,1,1"
 
@@ -16,3 +17,6 @@ Yeah, you need to specify some other stuff too. For the mpnn/AF step of the RFdi
 As long as all of these environment variables are set it should work
 
 python -u /home/amin_sagar/softwares/BindCraft/bindcraft.py --settings './settings_target/CDCP1_CTD_DefHel_allowCys.json' --filters 'settings_filters/peptide_filters.json' --advanced 'settings_advanced/peptide_3stage_multimer_allowcys.json'
+
+/home/amin_sagar/.local/lib/python3.10/site-packages/jax/_src/xla_bridge.py:133: UserWarning: TPU backend initialization is taking more than 60.0 seconds. Did you run your code on all TPU hosts? See https://jax.readthedocs.io/en/latest/multi_process.html for more information.
+  warnings.warn(
