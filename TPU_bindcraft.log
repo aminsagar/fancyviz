@@ -14,4 +14,5 @@ Yeah, you need to specify some other stuff too. For the mpnn/AF step of the RFdi
         os.environ["TPU_MESH_CONTROLLER_PORT"] = str(ports[tpu_id])
  
 As long as all of these environment variables are set it should work
- 
+
+python -u /home/amin_sagar/softwares/BindCraft/bindcraft.py --settings './settings_target/CDCP1_CTD_DefHel_allowCys.json' --filters 'settings_filters/peptide_filters.json' --advanced 'settings_advanced/peptide_3stage_multimer_allowcys.json'
