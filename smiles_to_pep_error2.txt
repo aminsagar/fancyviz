@@ -1,0 +1,53 @@
+python bc_peptide_cli.py prepare --example-file ./Example_BC.txt --output-dir ./work/bc1/
+0/4 Loading input data...
+1/4 Labelling molecules: 1it [00:00, 62.33it/s]
+2/4 Storing NNAAs: 100%|██████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:00<00:00, 352.98it/s]
+4/4 Relabelling mols:   0%|                                                                                            | 0/1 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/mnt/Comp_Chem/Projects/App-Development/smiles_to_peptide-main/smiles_to_peptide-main/Monomerizer/src/monomerizer.py", line 886, in <module>
+    main()
+  File "/mnt/Comp_Chem/Projects/App-Development/smiles_to_peptide-main/smiles_to_peptide-main/Monomerizer/src/monomerizer.py", line 868, in main
+    mol_df = relabel_batches(mol_df, NNAA_df, batch_size)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/Comp_Chem/Projects/App-Development/smiles_to_peptide-main/smiles_to_peptide-main/Monomerizer/src/monomerizer.py", line 807, in relabel_batches
+    local_mol_df.loc[local_mol_df['ID'] == row['ID'], ['SEQUENCE', 'ERROR', 'BOND HIGHLIGHTS']] = row[['SEQUENCE', 'ERROR', 'BOND HIGHLIGHTS']].values
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amin/mambaforge/envs/smiles_to_peptide/lib/python3.11/site-packages/pandas/core/indexing.py", line 938, in __setitem__
+    iloc._setitem_with_indexer(indexer, value, self.name)
+  File "/home/amin/mambaforge/envs/smiles_to_peptide/lib/python3.11/site-packages/pandas/core/indexing.py", line 1953, in _setitem_with_indexer
+    self._setitem_with_indexer_split_path(indexer, value, name)
+  File "/home/amin/mambaforge/envs/smiles_to_peptide/lib/python3.11/site-packages/pandas/core/indexing.py", line 2026, in _setitem_with_indexer_split_path
+    self._setitem_single_column(loc, v, pi)
+  File "/home/amin/mambaforge/envs/smiles_to_peptide/lib/python3.11/site-packages/pandas/core/indexing.py", line 2181, in _setitem_single_column
+    self.obj._mgr.column_setitem(loc, plane_indexer, value)
+  File "/home/amin/mambaforge/envs/smiles_to_peptide/lib/python3.11/site-packages/pandas/core/internals/managers.py", line 1503, in column_setitem
+    new_mgr = col_mgr.setitem((idx,), value)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amin/mambaforge/envs/smiles_to_peptide/lib/python3.11/site-packages/pandas/core/internals/managers.py", line 604, in setitem
+    return self.apply("setitem", indexer=indexer, value=value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amin/mambaforge/envs/smiles_to_peptide/lib/python3.11/site-packages/pandas/core/internals/managers.py", line 442, in apply
+    applied = getattr(b, f)(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amin/mambaforge/envs/smiles_to_peptide/lib/python3.11/site-packages/pandas/core/internals/blocks.py", line 1667, in setitem
+    values[indexer] = value
+    ~~~~~~^^^^^^^^^
+  File "/home/amin/mambaforge/envs/smiles_to_peptide/lib/python3.11/site-packages/pandas/core/arrays/string_.py", line 863, in __setitem__
+    value = self._maybe_convert_setitem_value(value)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amin/mambaforge/envs/smiles_to_peptide/lib/python3.11/site-packages/pandas/core/arrays/string_.py", line 852, in _maybe_convert_setitem_value
+    if len(value) and not lib.is_string_array(value, skipna=True):
+       ^^^^^^^^^^
+TypeError: len() of unsized object
+Traceback (most recent call last):
+  File "/mnt/Comp_Chem/Projects/App-Development/smiles_to_peptide-main/smiles_to_peptide-main/bc_peptide_cli.py", line 876, in <module>
+    main()
+  File "/mnt/Comp_Chem/Projects/App-Development/smiles_to_peptide-main/smiles_to_peptide-main/bc_peptide_cli.py", line 872, in main
+    args.func(args)
+  File "/mnt/Comp_Chem/Projects/App-Development/smiles_to_peptide-main/smiles_to_peptide-main/bc_peptide_cli.py", line 135, in run_prepare
+    _run(cmd, cwd=_monomerizer_root())
+  File "/mnt/Comp_Chem/Projects/App-Development/smiles_to_peptide-main/smiles_to_peptide-main/bc_peptide_cli.py", line 163, in _run
+    subprocess.run(cmd, cwd=str(cwd) if cwd else None, check=True)
+  File "/home/amin/mambaforge/envs/smiles_to_peptide/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/home/amin/mambaforge/envs/smiles_to_peptide/bin/python', 'src/monomerizer.py', '--input_file', '/mnt/Comp_Chem/Projects/App-Development/smiles_to_peptide-main/smiles_to_peptide-main/work/bc1/monomerizer_input.tsv', '--output_dir', '/mnt/Comp_Chem/Projects/App-Development/smiles_to_peptide-main/smiles_to_peptide-main/work/bc1/monomerizer', '--min_amino_acids', '5', '-process_cyclic']' returned non-zero exit status 1.
